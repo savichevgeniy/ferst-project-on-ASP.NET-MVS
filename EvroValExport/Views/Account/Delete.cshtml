@@ -1,0 +1,46 @@
+﻿@model EvroValExport.Models.User
+<div class=" contacts">
+    <h3>Вы уверены, что хотите удалить пользователя?</h3>
+    <div>
+        <div class="contacts">
+            <h4>Пользователь</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Должность
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    ФИО
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FIO)
+                </dd>
+
+                <dt>
+                    Пароль
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Password)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Удалить" class="btn btn-default" /> |
+                    @Html.ActionLink("Назад к таблице", "Index", new { id = 1 }, new { @style = "color:maroon;" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

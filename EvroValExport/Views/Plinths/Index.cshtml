@@ -1,0 +1,76 @@
+﻿@{
+
+    ViewBag.Title = "Плинтус";
+    AjaxOptions ajax = new AjaxOptions
+    {
+        UpdateTargetId = "PlinthsList",
+        Url = Url.Action("GetPlinths")
+
+    };
+}
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <link href="~/Content/CSS/Print.css" media="Print" rel="stylesheet" />
+</head>
+
+
+<body>
+    <span class="noprint">
+        <a title="Распечатать расчетный" href='javascript:window.print(); void 0;'>
+            <img style="margin-top:40px;" class="Print" title="Распечатать расчетный" src="~/Content/images/print_printer.png" />
+        </a>
+    </span>
+    <div class=" contacts">
+        <h2>Плинтус</h2>
+        <span class="noprint">
+            <p>
+                @Html.ActionLink("Добавление новой записи", "Create", new { id = 1 }, new { @style = "color:maroon;" })
+            </p>
+        </span>
+        @using (Ajax.BeginForm(ajax))
+        {
+            <div class=" row" id=" find">
+                <div class=" col-sm-3 input-group ">
+                    <span class="noprint">
+                        <input type="text" value=" @ViewBag.filter" name="filter" class=" form-control" placeholder="Ведите наименование товара" />
+                        </span>
+                        <span class=" input-group-btn">
+                            <button type="submit" class=" btn btn-default">Поиск</button>
+                        </span>
+                </div>
+            </div>
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Наименование
+                    </th>
+                    <th>
+                        Категория
+                    </th>
+                    <th>
+                        Материал
+                    </th>
+                    <th>
+                        Цена
+                    </th>
+                    <th>
+                        Количество
+                    </th>
+                    <th>
+                        Общая стоимость
+                    </th>
+                    <th></th>
+                </tr>
+                <tbody id="PlinthsList">
+                    @Html.Action("GetPlinths")
+                </tbody>
+
+
+            </table>
+        }
+    </div>
+</body>
+</html>

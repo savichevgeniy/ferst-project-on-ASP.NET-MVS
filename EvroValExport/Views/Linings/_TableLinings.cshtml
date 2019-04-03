@@ -1,0 +1,39 @@
+﻿@using EvroValExport.Models;
+
+@model IEnumerable<Lining>
+@{
+    Layout = null;
+}
+
+
+
+@foreach (var item in Model)
+{
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Material)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalSum)
+    </td>
+    <td>
+        <span class="noprint">
+            @Html.ActionLink("Редакировать", "Edit", new { id = item.Id }, new { @style = "color:maroon;" }) |
+            @Html.ActionLink("Подробности", "Details", new { id = item.Id }, new { @style = "color:maroon;" }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.Id }, new { @style = "color:maroon;" })
+        </span>
+    </td>
+</tr>
+}

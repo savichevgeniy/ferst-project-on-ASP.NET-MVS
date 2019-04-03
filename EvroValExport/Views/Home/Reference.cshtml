@@ -1,0 +1,79 @@
+﻿<div class="contacts">
+    @{
+        ViewBag.Title = "Справка";
+    }
+
+    <link href="~/Content/CSS/Index.css" rel="stylesheet" />
+
+    <p align="center"><h3>Справка, для персонала предприятия, по пользованию приложением:</h3></p>
+
+    <hr />
+
+
+    <h4>Правила пользования приложением в зависимости от занимаемой должности:</h4>
+
+    <div class=" reference">
+        <h4><img src="~/Content/images/Director.png" class="img-reference" />
+            @Html.ActionLink("Директор предприятия:", "Index", "Workers", new { id = 1 }, new { @style = "color:maroon;" })
+                
+            </h4>
+        <h5>
+            Если вы авторизовались под эти именем вам доступны следующие функции приложения:<br />
+            1. Вы можете просматривать все таблицы.<br />
+            2. Добавлять\Удалять\Редактировать новости.<br />
+            3. Зарегистрировать нового пользователя.
+        </h5>
+       
+        <h4><img src="~/Content/images/engineer.png" class=" img-reference" />@Html.ActionLink("Инженер:", "Index", "Workers", new { id = 1 }, new { @style = "color:maroon;" }) </h4>
+        <h5>
+            Если вы авторизовались под эти именем вам доступны следующие функции приложения:<br />
+            1. Вы можете просматривать все таблицы.<br />
+            2. Добавлять\Удалять\Редактировать записи во всех таблицах.<br />
+        </h5>
+        <h4>
+            <img src="~/Content/images/User.png" class=" img-reference" />@Html.ActionLink("Работник предприятия:", "Index", "Workers", new { id = 1 }, new { @style = "color:maroon;" })
+                
+            </h4>
+        <h5>
+            Если вы авторизовались под эти именем вам доступны следующие функции приложения:<br />
+            1. Вы можете просматривать информацию о предприятии.<br />
+            2. Просматривать таблицу с работниками предприятия.<br />
+            3. Просматривать новости.<br />
+        </h5>
+    </div>
+    <h4>
+        <img src="~/Content/images/About.png" class=" img-reference" />
+        @Html.ActionLink("Страница о предприятии", "About", "Home", new { @style = "color:maroon;" })
+
+    </h4>
+    <div class=" reference">
+        <h5>
+            Страница содержит информацию о созданнии предприятя, деятельности и развитии<br />
+            Вы можете просмотреть фотографии нашего предприятия, переключая их с помощью <br />
+            панели навигации, ниже слайдера.
+        </h5>
+    </div>
+    <h4><img src="~/Content/images/Contacts .png" class=" img-reference" />@Html.ActionLink("Страница контакты", "Contact", "Home", new { @style = "color:maroon;" })</h4>
+    <div class=" reference">
+        <h5>
+            Страница содержит информацию о контактах предприятя, карту проезда "GoogleMap".<br />
+            Вы можете просмотреть на карте адресс предприятия, а также построить маршрут проезда.
+        </h5>
+        </div>
+        <h4><img src="~/Content/images/News.png" class=" img-reference" />
+    @Html.ActionLink("Страница новости", "Index", "News", new { @style = "color:maroon;" })</h4>
+        <div class=" reference">
+            <h5>
+                Содержит информацию о новостях происходящих в нашем предприятии.<br />
+                Также директор предприятия будет выкладывать информацию о выдаче зароботной платы
+            </h5>
+        </div>
+    </div>
+
+
+
+
+
+
+
+

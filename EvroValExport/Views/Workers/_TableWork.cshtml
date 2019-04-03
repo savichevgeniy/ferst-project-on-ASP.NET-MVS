@@ -1,0 +1,24 @@
+﻿@using EvroValExport.Models;
+
+@model IEnumerable<Workers>
+@{ 
+    Layout = null;
+}
+
+
+
+@foreach (var item in Model)
+{
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Position)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SumWork)
+    </td>
+    <td>
+        @Html.ActionLink("Редактировать", "WorkEdit", new { id = item.Id }, new { @style = "color:maroon;" }) 
+    </td>
+</tr>
+}

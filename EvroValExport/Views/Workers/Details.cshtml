@@ -1,0 +1,98 @@
+﻿@model EvroValExport.Models.Workers
+<link href="~/Content/CSS/Print.css" media="print" rel="stylesheet" />
+@{
+    ViewBag.Title = "Подробности";
+}
+<span class="noprint">
+    <h2>Подробно о записи</h2>
+    <a title="Распечатать расчетный" href='javascript:window.print(); void 0;'>
+        <img class="Print" title="Распечатать расчетный" src="~/Content/images/print_printer.png" />
+    </a>
+</span>
+<div>
+    <h4>Работник:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ФИО:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIO)
+        </dd>
+
+        <dt>
+            Адрес:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            Мобильный телефон:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Занимаеая должность:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            Тарифная ставка:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SumWork)
+        </dd>
+        <span class="noprint">
+            <dt>
+                Работал с:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StartTime)
+            </dd>
+            <dt>
+                Ушел с работы в:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EndTime)
+            </dd>
+            <dt>
+                Текущее время:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CurrentTime)
+            </dd>
+        </span>
+        <dt>
+            Всего отработал:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalTime)
+        </dd>
+        <dt>
+            Зароботная плата
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalSalary)
+        </dd>
+
+
+    </dl>
+</div>
+<span class="noprint">
+    <p>
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }, new { @style = "color:maroon;" }) |
+        @Html.ActionLink("Назад к таблице", "Index", new { id = 1 }, new { @style = "color:maroon;" })
+    </p>
+</span>

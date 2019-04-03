@@ -1,0 +1,41 @@
+﻿@model EvroValExport.Models.News
+
+@{
+    ViewBag.Title = "Подробности";
+}
+
+<h2>Подробно о новости</h2>
+
+<div>
+    <h4>Новость</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Тема
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic)
+        </dd>
+
+        <dt>
+            Содержание
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+        <dt>
+            Действует до:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateNotification)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }, new { @style = "color:maroon;" }) |
+    @Html.ActionLink("Назад к новостям", "Index", new { id = 1 }, new { @style = "color:maroon;" })
+</p>

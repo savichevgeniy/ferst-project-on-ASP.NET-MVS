@@ -1,17 +1,31 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewData["Title"] = "Контакты предприятия";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<link href="~/Content/CSS/Index.css" rel="stylesheet" />
+<div class="contacts">
+    <br />
+    <h2>@ViewData["Title"]</h2>
+    <xml>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        <h4>
+            Директор предприятия
+        </h4>
+        Марченко Валерий Петрович
+        +375333327264
+        <h4>
+            Адрес предприятия
+        </h4>
+        г.Кобрин, ул. Пролетарская, д.151а
+        <h4>
+            Приемная предприятия
+        </h4>
+        Телефон: 2-76-86
+        Факс: 2-27-60
+        Email: upanuta@mail.ru
+        <br />
+    </xml>
+</div>
+<div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.1282077090036!2d24.329875415626645!3d52.22288847975908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4721206389d0d007%3A0x1c8905df3ef5ab2b!2z0YPQuy4g0J_RgNC-0LvQtdGC0LDRgNGB0LrQsNGPIDE1MSwg0JrQvtCx0YDQuNC9!5e0!3m2!1sru!2sby!4v1525554468371" width="80%" height="400" frameborder="0" style="border:0;     border-radius: 30px;" allowfullscreen></iframe>
+</div>

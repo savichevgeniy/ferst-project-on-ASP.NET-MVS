@@ -1,0 +1,62 @@
+﻿@model EvroValExport.Models.Plinth
+
+@{
+    ViewBag.Title = "Подробности";
+}
+
+@{
+    ViewBag.Title = "Подробно о записи";
+}
+
+<h2>Подробно о записи</h2>
+
+<div>
+    <h4>Товар:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Наименование
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Категория
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            Материал
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Material)
+        </dd>
+
+        <dt>
+            Цена
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Количество
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id },  new { @style = "color:maroon;" }) |
+    @Html.ActionLink("Назад к таблице", "Index", new { id = 1 }, new { @style = "color:maroon;" })
+</p>

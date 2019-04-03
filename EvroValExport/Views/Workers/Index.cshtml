@@ -1,0 +1,71 @@
+﻿
+@{
+
+    ViewBag.Title = "Персонал";
+    AjaxOptions ajax = new AjaxOptions
+    {
+        UpdateTargetId  = "workersList",
+        Url = Url.Action("GetWorkers")
+
+    };
+}
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+   
+</head>
+
+
+<body>
+    <div class=" contacts">
+        <h2>Персонал:</h2>
+        <p>
+           
+            @Html.ActionLink("Добавить работника", "Create", new { id = 1 }, new { @style = "color:maroon;" })
+        </p>
+
+        @using (Ajax.BeginForm(ajax))
+        {
+            <div class=" row" id=" find">
+                <div class=" col-sm-3 input-group ">
+                    <input type="text" value=" @ViewBag.filter" name="filter" class=" form-control" placeholder="Ведите фамилию работника" />
+                    <span class=" input-group-btn">
+                        <button type="submit" class=" btn btn-default">Поиск</button>
+                    </span>
+                </div>
+            </div>
+
+            <table class="table">
+               
+                <tr>
+                    <th>
+                        ФИО
+                    </th>
+                    <th>
+                        Адрес
+                    </th>
+                    <th>
+                        Мобильный телефон
+                    </th>
+                    <th>
+                        Должность
+                    </th>
+                    <th>
+                        Отработанное время
+                    </th>
+                    <th>
+                        Заработная плата
+                    </th>
+                    <th></th>
+                </tr>
+                <tbody id="workersList">
+                    @Html.Action("GetWorkers")
+                </tbody>
+
+
+            </table>
+        }
+    </div>
+</body>
+</html>

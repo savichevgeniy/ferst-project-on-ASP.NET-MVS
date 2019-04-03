@@ -1,0 +1,34 @@
+﻿@using EvroValExport.Models;
+
+@model IEnumerable<Workers>
+@{ 
+    Layout = null;
+}
+
+
+
+@foreach (var item in Model)
+{
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FIO)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StartTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EndTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CurrentTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalTime)
+    </td>
+
+    <td>
+        @Html.ActionLink("Редактировать", "WatchEdit", new { id = item.Id }, new { @style = "color:maroon;" }) 
+    </td>
+</tr>
+}

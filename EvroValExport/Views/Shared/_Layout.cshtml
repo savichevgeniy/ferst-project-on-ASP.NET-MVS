@@ -1,14 +1,108 @@
-﻿<!DOCTYPE html>
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link href="~/Content/CSS/Menu.less" rel="stylesheet" />
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – приложение ASP.NET</title>
+    <title>@ViewBag.Title – ЕвроВалЭкспорт</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/CSS/Index.css" rel="stylesheet" />
 </head>
 <body>
+
+
+
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    Таблицы:
+                </li>
+                <li class="dropdown">
+                    <br />
+                <li class="dropdown-header"><h4>Выберите таблицу:</h4></li>
+
+
+                <li>
+                    @Html.ActionLink("Дпугая продукция", "Index", "OtherProducts")
+                </li>
+                <li>
+                    @Html.ActionLink("Вагонка", "Index", "Linings")
+                </li>
+                <li>
+                    @Html.ActionLink("Плинтус", "Index", "Plinths")
+                </li>
+                <li>
+                    @Html.ActionLink("Вахта", "Watch", "Workers")
+                </li>
+                <li>
+                    @Html.ActionLink("Персонал", "Index", "Workers")
+                </li>
+                <li>
+                    @Html.ActionLink("Работа", "Work", "Workers")
+                </li>
+                <li>
+                    @Html.ActionLink("Пользователи", "Index", "Account")
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <script>
+        $(document).ready(function () {
+            var trigger = $('.hamburger'),
+                overlay = $('.overlay'),
+                isClosed = false;
+
+            trigger.click(function () {
+                hamburger_cross();
+            });
+
+            function hamburger_cross() {
+
+                if (isClosed == true) {
+                    overlay.hide();
+                    trigger.removeClass('is-open');
+                    trigger.addClass('is-closed');
+                    isClosed = false;
+                } else {
+                    overlay.show();
+                    trigger.removeClass('is-closed');
+                    trigger.addClass('is-open');
+                    isClosed = true;
+                }
+            }
+
+            $('[data-toggle="offcanvas"]').click(function () {
+                $('#wrapper').toggleClass('toggled');
+            });
+        });
+    </script>
+
+
+
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,24 +111,38 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <h1>ЕвроВалЭкспорт</h1>
             </div>
+            <br />
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+
+                    <li>@Html.ActionLink("О предприятии", "About", "Home")</li>
+                    <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Новости", "Index", "News")</li>
+                    <li>@Html.ActionLink("Справка", "Reference", "Home")</li>
+                    <li class="Exit" >@Html.ActionLink("Авторизация", "Login", "Account", new { id = 1 }, new { @style = "color:maroon;" })</li>
+                    <li>@Html.ActionLink("Регистрация", "Register", "Account", new { id = 1 }, new { @style = "color:maroon;" })</li>
                 </ul>
             </div>
         </div>
     </div>
+
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year –ЕвроВалЭкспорт</p>
         </footer>
     </div>
+
+
+
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -1,0 +1,44 @@
+﻿@model EvroValExport.Models.News
+
+@{
+    ViewBag.Title = "Удаление новости";
+}
+
+<h2>Delete</h2>
+
+<h3>Вы уверены, что хотите удалить новость?</h3>
+<div>
+    <h4>Новость:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Тема 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic)
+        </dd>
+
+        <dt>
+           Содержание
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад к новостям", "Index",new { id = 1 }, new { @style = "color:maroon;" })
+        </div>
+    }
+</div>
+
+
